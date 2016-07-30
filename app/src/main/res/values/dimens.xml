@@ -4,5 +4,11 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="fields_vertical_divider_short">14dp</dimen>
-    <dimen name="fields_vertical_divider_length">28dp</dimen>
+    <dimen name="fields_vertical_divider_long">28dp</dimen>
+
+    <dimen name="item_problem_text_size_short">12sp</dimen>
+    <dimen name="item_problem_text_size_long">18sp</dimen>
+    <dimen name="list_problem_vertical_divider">8dp</dimen>
+    <dimen name="item_card_view_vertical_margin">16dp</dimen>
+    <dimen name="item_card_view_horizontal_margin">16dp</dimen>
 </resources>

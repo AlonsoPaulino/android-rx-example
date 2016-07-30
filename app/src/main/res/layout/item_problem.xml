@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="problem"
+            type="com.luisalonso.rxandroidexample.domain.Problem" />
+    </data>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/list_problem_vertical_divider">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/item_card_view_vertical_margin"
+            android:paddingBottom="@dimen/item_card_view_vertical_margin"
+            android:paddingStart="@dimen/item_card_view_horizontal_margin"
+            android:paddingEnd="@dimen/item_card_view_horizontal_margin">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{problem.name}"
+                android:textStyle="bold"
+                android:textSize="@dimen/item_problem_text_size_long"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{problem.type}"
+                android:textSize="@dimen/item_problem_text_size_short"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{problem.contestId + problem.index}"
+                android:textSize="@dimen/item_problem_text_size_short"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</layout>

@@ -10,7 +10,7 @@ import com.luisalonso.rxandroidexample.R;
 import com.luisalonso.rxandroidexample.RxAndroidExample;
 import com.luisalonso.rxandroidexample.base.BaseActivity;
 import com.luisalonso.rxandroidexample.domain.User;
-import com.luisalonso.rxandroidexample.presentation.MainActivity;
+import com.luisalonso.rxandroidexample.presentation.contest.ContestActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -93,7 +93,7 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void call(User user) {
                         if (user.exist()) {
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            startActivity(new Intent(LoginActivity.this, ContestActivity.class));
                         } else {
                             showMessage(R.string.unsuccess_login_toast);
                         }

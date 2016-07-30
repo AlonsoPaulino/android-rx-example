@@ -5,5 +5,5 @@ package com.luisalonso.rxandroidexample.network;
  */
 public class ApiConstants {
 
-    public static final String BASE_URL = "http://codeforces.com/api";
+    public static final String BASE_URL = "http://codeforces.com/api/";
 }

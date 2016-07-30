@@ -24,7 +24,7 @@
         android:inputType="textPassword"
         android:background="@android:drawable/edit_text"
         android:hint="@string/password_hint"
-        android:layout_marginBottom="@dimen/fields_vertical_divider_length"/>
+        android:layout_marginBottom="@dimen/fields_vertical_divider_long"/>
 
     <Button
         android:id="@+id/login_button"
