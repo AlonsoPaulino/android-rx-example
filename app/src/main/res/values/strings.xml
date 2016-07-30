@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RxAndroidExample</string>
+    <string name="username_hint">Usuario</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="login_button_text">Ingresar</string>
+    <string name="unsuccess_login_toast">Credenciales Inválidas</string>
+</resources>
