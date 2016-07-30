@@ -10,11 +10,14 @@ import com.luisalonso.rxandroidexample.network.model.ContestResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Create by Luis Alonso Paulino Flores <alonsopf1@gmail.com>
  */
-public class ContestPresenter implements ContestContract.Presenter, Callback<ContestResponse> {
+public class ContestPresenter implements ContestContract.Presenter{
 
     private final ContestContract.View mContestView;
 
@@ -31,19 +34,30 @@ public class ContestPresenter implements ContestContract.Presenter, Callback<Con
     @Override
     public void getProblems() {
         mContestView.startLoading();
-        ServiceFactory.retrofitService(ContestService.class).getProblems().enqueue(this);
-    }
+        ServiceFactory.retrofitService(ContestService.class).getProblems()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<ContestResponse>() {
+                    @Override
+                    public void onCompleted() {
 
-    @Override
-    public void onResponse(Call<ContestResponse> call, Response<ContestResponse> response) {
-        mContestView.stopLoading();
-        ContestResponse contestResponse = response.body();
-        mContestView.showProblems(contestResponse.getProblems());
-    }
+                    }
 
-    @Override
-    public void onFailure(Call<ContestResponse> call, Throwable t) {
-        mContestView.stopLoading();
-        mContestView.showProblems(null);
+                    @Override
+                    public void onError(Throwable e) {
+                        mContestView.stopLoading();
+                        e.printStackTrace();
+                        if (e.getMessage() != null) {
+                            RxAndroidExample.log(e.getMessage());
+                        }
+                        mContestView.showProblems(null);
+                    }
+
+                    @Override
+                    public void onNext(ContestResponse contestResponse) {
+                        mContestView.stopLoading();
+                        mContestView.showProblems(contestResponse.getProblems());
+                    }
+                });
     }
 }

@@ -12,5 +12,5 @@ import rx.Observable;
 public interface ContestService {
 
     @GET("problemset.problems?tags=graphs")
-    Call<ContestResponse> getProblems();
+    Observable<ContestResponse> getProblems();
 }
